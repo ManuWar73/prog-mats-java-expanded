@@ -83,7 +83,7 @@ public class PMBlocks{
     arbalest, artemis, paragon,
 
     //Nexus
-    solstice, starfall,
+    solstice, starfall, nebula,
 
     // endregion
     // region production
@@ -1112,6 +1112,92 @@ public class PMBlocks{
             warmupMaintainTime = shoot.shots * shoot.shotDelay + bullet.lifetime + 30f;
 
             reload = 90f;
+
+            shootSound = Sounds.malignShoot;
+
+            consumePower(25f);
+        }};
+        nebula = new NexusTurret("nebula"){{
+            requirements(Category.turret, BuildVisibility.sandboxOnly, with());
+            size = 6;
+
+            float brange = range = 150f * 8f;
+            float shootRadius = 20f * 8f;
+            NexusLaserBulletType bullet = new NexusLaserBulletType(){{ //TODO hit effect
+                speed = brange;
+                drawSize = speed * 2f;
+                splashDamage = 1200f;
+                splashDamageRadius = 32f;
+                strikeInaccuracy = shootRadius;
+                height = starHeight;
+                baseColorLight = Pal.surge;
+                baseColorDark = PMPal.surgeDark;
+                alwaysBloom = true;
+            }};
+
+            ammo(Items.phaseFabric, bullet);
+            shoot.shots = 50;
+            shoot.shotDelay = 1.5f;
+
+            drawer = new DrawMulti(
+                    new DrawTurret(){{
+                        parts.add(new PillarPart(){{
+                            baseColorLight = topColorLight = Pal.heal;
+                            baseColorDark = topColorDark = Pal.coalBlack;
+                            radius = starWidth / 4f;
+                            alphaProg = PartProgress.constant(1f);
+                            heightProg = nexusBeamHeight;
+                            radProg = nexusBeamSize;
+                            alwaysBloom = true;
+                            layer = beamLayer;
+                            height = starHeight;
+                        }});
+
+                        parts.add(new RingPart(){{
+                            inColor = Pal.heal;
+                            height = starHeight * nexusHeightGrowStop;
+                            inRad = starLen * 2f;
+                            outRad = inRad * 2.5f;
+                            alwaysBloom = true;
+                            layer = beamLayer;
+                            radProg = PartProgress.warmup.compress(0.5f, 0.6f).clamp();
+                            alphaProg = radProg.inv();
+                        }});
+
+                        parts.add(new StarPart(){{
+                            lightColor = Pal.heal;
+                            darkColor = Pal.coalBlack;
+                            heightProg = nexusBeamHeight;
+                            sizeProg = nexusBeamSize;
+                            spikeLen = starLen;
+                            spikeWidth = starWidth;
+                            alwaysBloom = true;
+                            layer = beamLayer + 0.1f;
+                            height = starHeight;
+                        }});
+                    }},
+                    new DrawNexusAim(){{
+                        color = Pal.heal;
+                        beams = 6;
+                        radius = shootRadius + bullet.radius;
+                        pointWidth = 8f;
+                        pointInLen = 3f * 8f;
+                        pointOutLen = 5f * 8f;
+                        pointRotation = 45f;
+                        height = starHeight;
+                        alwaysBloom = true;
+                        layer = beamLayer;
+
+                        clipSize = (range + radius) * 2f;
+                    }}
+            );
+
+            linearWarmup = true;
+            minWarmup = 1f;
+            shootWarmupSpeed = 1f / (4f * 60f);
+            warmupMaintainTime = shoot.shots * shoot.shotDelay + bullet.lifetime + 30f;
+
+            reload = 180f;
 
             shootSound = Sounds.malignShoot;
 
