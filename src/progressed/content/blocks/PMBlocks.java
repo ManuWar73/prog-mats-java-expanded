@@ -1130,14 +1130,14 @@ public class PMBlocks{
                 splashDamageRadius = 32f;
                 strikeInaccuracy = shootRadius;
                 height = starHeight;
-                baseColorLight = Pal.surge;
-                baseColorDark = PMPal.surgeDark;
+                baseColorLight = Pal.heal;
+                baseColorDark = Pal.coalBlack;
                 alwaysBloom = true;
             }};
 
             ammo(Items.phaseFabric, bullet);
-            shoot.shots = 50;
-            shoot.shotDelay = 1.5f;
+            shoot.shots = 25;
+            shoot.shotDelay = 1f;
 
             drawer = new DrawMulti(
                     new DrawTurret(){{
@@ -1197,7 +1197,7 @@ public class PMBlocks{
             shootWarmupSpeed = 1f / (4f * 60f);
             warmupMaintainTime = shoot.shots * shoot.shotDelay + bullet.lifetime + 30f;
 
-            reload = 180f;
+            reload = 300f;
 
             shootSound = Sounds.malignShoot;
 
