@@ -80,7 +80,7 @@ public class PMBlocks{
     kugelblitz, excalibur,
 
     //Payload
-    arbalest, artemis, paragon,
+    arbalest, artemis, paragon, termina,
 
     //Nexus
     solstice, starfall, nebula,
@@ -949,6 +949,34 @@ public class PMBlocks{
             ((DrawPayloadTurret)drawer).basePrefix = "reinforced-";
             limitRange();
         }};
+        termina = new BallisticMissileTurret("termina"){{
+            requirements(Category.turret, with(
+                    Items.copper, 70,
+                    Items.lead, 350,
+                    Items.graphite, 300,
+                    //todo everything
+                    Items.silicon, 300,
+                    Items.titanium, 250,
+                    PMItems.tenelium, 120
+            ));
+            ammo(
+                    basicMissile, PayloadBullets.artemisBasic,
+                    recursiveMissile, PayloadBullets.artemisRecursive
+            );
+            size = 5;
+            scaledHealth = 160;
+            reload = 90f;
+            range = 85f * 8f;
+            minRange = 25f * 8f;
+            shootY = 0f;
+            shootSound = Sounds.missileLaunch;
+            cooldownTime = 3.5f * 60f;
+            shake = 5f;
+            unitSort = UnitSorts.strongest;
+
+            coolant = consumeCoolant(0.2f);
+            limitRange();
+        }};
 
         float nexusHeightGrowStop = 0.15f, nexusSizeGrowStop = 0.3f;
         PartProgress nexusBeamHeight = PartProgress.warmup.shorten(0.7f).clamp().curve(Interp.smooth).mul(nexusHeightGrowStop)
@@ -1197,7 +1225,7 @@ public class PMBlocks{
             shootWarmupSpeed = 1f / (4f * 60f);
             warmupMaintainTime = shoot.shots * shoot.shotDelay + bullet.lifetime + 30f;
 
-            reload = 300f;
+            reload = 600f;
 
             shootSound = Sounds.malignShoot;
 
