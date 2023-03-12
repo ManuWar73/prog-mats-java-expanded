@@ -960,7 +960,7 @@ public class PMBlocks{
                     PMItems.tenelium, 120
             ));
             ammo(
-                    basicMissile, PayloadBullets.artemisBasic,
+                    basicMissile, PayloadBullets.terminaMissileA,
                     recursiveMissile, PayloadBullets.artemisRecursive
             );
             size = 5;

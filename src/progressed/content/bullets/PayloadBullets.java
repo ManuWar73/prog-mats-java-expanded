@@ -29,6 +29,7 @@ public class PayloadBullets{
 
     public static BallisticMissileBulletType
     artemisBasic, artemisRecursive, //TODO 3rd missile
+terminaMissileA,
     paragonBasic, paragonCluster, //TODO 3rd nuke
     ohno;
 
@@ -192,6 +193,60 @@ public class PayloadBullets{
                     trailColor = targetColor = PMPal.missileFrag;
 
                     blockEffect = MissileFx.missileBlockedSmall;
+                }};
+            }};
+        }};
+        terminaMissileA = new BallisticMissileBulletType("prog-mats-recursive-missile"){{
+            status = StatusEffects.none;
+
+            lifetime *= 1.5f;
+            height = 36f;
+            zoneRadius = 5f * 8f;
+            trailLength = 25;
+            trailWidth = 1f;
+            trailColor = targetColor = PMPal.missileFrag;
+            posInterp = Interp.smoother;
+            vertical = true;
+
+            splitLifeMaxOffset = 30f;
+            fragRandomSpread = 80f;
+            fragBullets = 3;
+            fragBullet = new BallisticMissileBulletType("prog-mats-recursive-missile-split"){{
+                status = StatusEffects.none;
+
+                zoneRadius = 3.5f * 8f;
+                trailLength = 20;
+                trailWidth = 1f;
+                trailColor = targetColor = PMPal.missileFrag;
+
+                fragRandomSpread = 64f;
+                fragBullets = 3;
+                fragBullet = new BallisticMissileBulletType("prog-mats-recursive-missile-split"){{
+                    splashDamage = 260f;
+                    splashDamageRadius = 48f;
+                    buildingDamageMultiplier = 0.5f;
+                    hitShake = 5f;
+
+                    zoneRadius = 2f * 8f;
+                    trailLength = 15;
+                    trailWidth = 1f;
+                    trailColor = targetColor = PMPal.missileFrag;
+
+                    blockEffect = MissileFx.missileBlockedSmall;
+                    fragBullets = 10;
+                    fragBullet = new BallisticMissileBulletType("prog-mats-recursive-missile-split"){{
+                        splashDamage = 100f;
+                        splashDamageRadius = 96f;
+                        buildingDamageMultiplier = 0.5f;
+                        hitShake = 5f;
+
+                        zoneRadius = 6f * 8f;
+                        trailLength = 15;
+                        trailWidth = 1f;
+                        trailColor = targetColor = PMPal.missileFrag;
+
+                        blockEffect = MissileFx.missileBlockedSmall;
+                    }};
                 }};
             }};
         }};
