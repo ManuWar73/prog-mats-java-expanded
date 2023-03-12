@@ -210,7 +210,7 @@ terminaMissileA, terminaMissileB,
 
             splitLifeMaxOffset = 30f;
             fragRandomSpread = 80f;
-            fragBullets = 3;
+            fragBullets = 5;
             fragBullet = new BallisticMissileBulletType("prog-mats-recursive-missile-split"){{
                 status = StatusEffects.none;
 
@@ -220,9 +220,9 @@ terminaMissileA, terminaMissileB,
                 trailColor = targetColor = Pal.sap;
 
                 fragRandomSpread = 64f;
-                fragBullets = 3;
+                fragBullets = 5;
                 fragBullet = new BallisticMissileBulletType("prog-mats-recursive-missile-split"){{
-                    splashDamage = 260f;
+                    splashDamage = 100f;
                     splashDamageRadius = 48f;
                     buildingDamageMultiplier = 0.5f;
                     hitShake = 5f;
@@ -233,11 +233,11 @@ terminaMissileA, terminaMissileB,
                     trailColor = targetColor = Pal.sap;
 
                     blockEffect = MissileFx.missileBlockedSmall;
-                    fragBullets = 3;
+                    fragBullets = 5;
                     lifetime *= 1.75f;
                     fragRandomSpread = 64;
                     fragBullet = new BallisticMissileBulletType("prog-mats-recursive-missile-split"){{
-                        splashDamage = 100f;
+                        splashDamage = 200f;
                         splashDamageRadius = 24f;
                         buildingDamageMultiplier = 0.5f;
                         hitShake = 0.5f;
