@@ -1015,7 +1015,7 @@ public class PMBlocks{
             ));
             ammo(
                     basicMissile, PayloadBullets.terminaMissileA,
-                    recursiveMissile, PayloadBullets.artemisRecursive
+                    recursiveMissile, PayloadBullets.terminaMissileB
             );
             size = 5;
             scaledHealth = 160;
