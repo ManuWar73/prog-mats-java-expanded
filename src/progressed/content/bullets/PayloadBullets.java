@@ -233,14 +233,17 @@ terminaMissileA,
                     trailColor = targetColor = PMPal.missileFrag;
 
                     blockEffect = MissileFx.missileBlockedSmall;
-                    fragBullets = 10;
+                    fragBullets = 3;
+                    lifetime *= 1.75f;
+                    fragRandomSpread = 64;
                     fragBullet = new BallisticMissileBulletType("prog-mats-recursive-missile-split"){{
                         splashDamage = 100f;
-                        splashDamageRadius = 96f;
+                        splashDamageRadius = 24f;
                         buildingDamageMultiplier = 0.5f;
-                        hitShake = 5f;
+                        hitShake = 0.5f;
+                        lifetime *= 1.5;
 
-                        zoneRadius = 6f * 8f;
+                        zoneRadius = 3f * 8f;
                         trailLength = 15;
                         trailWidth = 1f;
                         trailColor = targetColor = PMPal.missileFrag;
