@@ -49,7 +49,7 @@ public class PMBlocks{
     // region Turrets
 
     //Miniguns
-    minigun, miinigun, mivnigun,
+    minigun, miinigun, mivnigun, mviiinigun,
 
     //Teslas
     shock, spark, storm,
@@ -260,6 +260,60 @@ public class PMBlocks{
                     -3f, 0f, 0f,
                     3f, 0f, 0f,
                     9f, -3f / 4f, 0f
+                };
+            }};
+            coolant = consumeCoolant(0.2f);
+        }};
+        mviiinigun = new MinigunTurret("mviiinigun"){{
+            requirements(Category.turret, with(
+                    Items.copper, 650,
+                    Items.graphite, 600,
+                    Items.titanium, 370,
+                    Items.thorium, 340,
+                    Items.plastanium, 325,
+                    Items.surgeAlloy, 220,
+                    PMItems.tenelium, 270
+            ));
+            ammo(
+                    Items.copper, MinigunBullets.standardCopperMini,
+                    Items.graphite, MinigunBullets.standardDenseMini,
+                    Items.silicon, MinigunBullets.standardHomingMini,
+                    Items.pyratite, MinigunBullets.standardIncendiaryMini,
+                    Items.thorium, MinigunBullets.standardThoriumMini
+            );
+            size = 6;
+            hideDetails = false;
+            range = 255f;
+            maxSpeed = 36f;
+            scaledHealth = 160f;
+            shootCone = 35f;
+            shootSound = Sounds.shootBig;
+            targetAir = targetGround = true;
+            recoil = 3f;
+            recoilTime = 90f;
+            cooldownTime = 10f;
+            inaccuracy = 3f;
+            shootEffect = Fx.shootSmall;
+            smokeEffect = Fx.shootSmallSmoke;
+            ammoUseEffect = Fx.none;
+            heatColor = Pal.turretHeat;
+
+            barX = 5f;
+            barY = -10f;
+            barStroke = 1f;
+            barLength = 9f;
+
+            shoot = new ShootBarrel(){{
+                shots = 4;
+                barrels = new float[]{
+                        -9f, -3f / 4f, 0f,
+                        -3f, 0f, 0f,
+                        3f, 0f, 0f,
+                        9f, -3f / 4f, 0f
+                        -21f, -3f / 4f, 0f,
+                        -15f, 0f, 0f,
+                        15f, 0f, 0f,
+                        21f, -3f / 4f, 0f
                 };
             }};
             coolant = consumeCoolant(0.2f);
