@@ -29,7 +29,7 @@ public class PayloadBullets{
 
     public static BallisticMissileBulletType
     artemisBasic, artemisRecursive, //TODO 3rd missile
-terminaMissileA,
+terminaMissileA, terminaMissileB,
     paragonBasic, paragonCluster, //TODO 3rd nuke
     ohno;
 
@@ -251,6 +251,39 @@ terminaMissileA,
                         blockEffect = MissileFx.missileBlockedSmall;
                     }};
                 }};
+            }};
+        }};
+        terminaMissileB = new BallisticMissileBulletType("prog-mats-cluster-nuke"){{
+            status = StatusEffects.none;
+
+            lifetime = 7f * 60f;
+
+            height = 160f;
+            zoneRadius = 24f * 8f;
+            trailLength = 35;
+            trailWidth = 1.5f;
+            trailColor = targetColor = PMPal.missileFrag;
+            posInterp = Interp.smoother;
+            vertical = true;
+
+            splitTime = 120f;
+            splitLifeMaxOffset = 45f;
+            fragRandomSpread = 24f * 8f;
+            fragBullets = 40;
+
+            fragBullet = new BallisticMissileBulletType("prog-mats-cluster-nuke-split"){{
+                splashDamage = 1000f;
+                splashDamageRadius = 4 * 8f;
+                buildingDamageMultiplier = 0.5f;
+
+                hitShake = 5f;
+                despawnEffect = MissileFx.missileExplosion;
+                blockEffect = MissileFx.missileBlocked;
+
+                trailLength = 35;
+                zoneRadius = 4f * 8f;
+                trailWidth = 1f;
+                trailColor = targetColor = Pal.sap;
             }};
         }};
 
