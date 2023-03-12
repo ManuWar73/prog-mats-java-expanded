@@ -201,10 +201,10 @@ terminaMissileA,
 
             lifetime *= 1.5f;
             height = 36f;
-            zoneRadius = 5f * 8f;
+            zoneRadius = 192;
             trailLength = 25;
             trailWidth = 1f;
-            trailColor = targetColor = PMPal.missileFrag;
+            trailColor = targetColor = Pal.sap;
             posInterp = Interp.smoother;
             vertical = true;
 
@@ -217,7 +217,7 @@ terminaMissileA,
                 zoneRadius = 3.5f * 8f;
                 trailLength = 20;
                 trailWidth = 1f;
-                trailColor = targetColor = PMPal.missileFrag;
+                trailColor = targetColor = Pal.sap;
 
                 fragRandomSpread = 64f;
                 fragBullets = 3;
@@ -230,7 +230,7 @@ terminaMissileA,
                     zoneRadius = 2f * 8f;
                     trailLength = 15;
                     trailWidth = 1f;
-                    trailColor = targetColor = PMPal.missileFrag;
+                    trailColor = targetColor = Pal.sap;
 
                     blockEffect = MissileFx.missileBlockedSmall;
                     fragBullets = 3;
@@ -246,7 +246,7 @@ terminaMissileA,
                         zoneRadius = 3f * 8f;
                         trailLength = 15;
                         trailWidth = 1f;
-                        trailColor = targetColor = PMPal.missileFrag;
+                        trailColor = targetColor = Pal.sap;
 
                         blockEffect = MissileFx.missileBlockedSmall;
                     }};

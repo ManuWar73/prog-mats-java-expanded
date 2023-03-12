@@ -1164,7 +1164,7 @@ public class PMBlocks{
             }};
 
             ammo(Items.phaseFabric, bullet);
-            shoot.shots = 25;
+            shoot.shots = 90;
             shoot.shotDelay = 1f;
 
             drawer = new DrawMulti(
